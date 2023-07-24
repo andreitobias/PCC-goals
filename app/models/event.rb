@@ -28,4 +28,6 @@
 class Event < ApplicationRecord
   belongs_to :organizer, class_name: 'User'
   belongs_to :category
+  has_many :event_participants
+  has_many :participants, through: :event_participants, source: :user
 end

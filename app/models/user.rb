@@ -33,6 +33,10 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   validate :password_complexity
 
+  has_many :events, as: :organizer
+  has_many :event_participants
+  has_many :attended_events, through: :event_participants, source: :event
+
   class << self
     def authenticate(email, password)
       user = User.find_for_authentication(email:)
