@@ -1,0 +1,56 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  NewCops: enable
+  TargetRubyVersion: 3.2
+  Exclude:
+    - "bin/*"
+    - Capfile
+    - config/boot.rb
+    - config/environment.rb
+    - config/initializers/version.rb
+    - db/schema.rb
+    - "node_modules/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "lib/generators/*"
+    - Gemfile
+    - Rakefile
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+Layout/LineLength:
+  Max: 150
+  Exclude:
+    - "config/**/*"
+    - "db/**/*"
+
+Metrics/AbcSize:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/BlockLength:
+  Max: 100
+  Exclude:
+    - "config/**/*"
+    - "spec/**/*"
+
+Metrics/ClassLength:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/MethodLength:
+  Max: 12
+  Exclude:
+    - "db/migrate/*"
+    - "spec/**/*"
+
+Naming/PredicateName:
+  Enabled: false

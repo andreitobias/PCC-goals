@@ -1,0 +1,59 @@
+# pcc_goal_app
+
+This is a Rails 7 app.
+
+## Documentation
+
+This README describes the purpose of this repository and how to set up a development environment. Other sources of documentation are as follows:
+
+* UI and API designs are in `doc/`
+
+## Prerequisites
+
+This project requires:
+
+* Ruby 3.2.0, preferably managed using [rbenv][]
+* Chromedriver for Capybara testing
+* PostgreSQL must be installed and accepting connections
+* [Redis][] must be installed and running on localhost with the default port
+
+On a Mac, you can obtain all of the above packages using [Homebrew][].
+
+If you need help setting up a Ruby development environment, check out this [Rails OS X Setup Guide](https://mattbrictson.com/rails-osx-setup-guide).
+
+## Getting started
+
+### bin/setup
+
+Run the `bin/setup` script. This script will:
+
+* Check you have the required Ruby version
+* Install gems using Bundler
+* Create local copies of `.env` and `database.yml`
+* Create, migrate, and seed the database
+
+### Run it!
+
+1. Run `bin/rake spec` to make sure everything works.
+2. Run `bin/rails s` and `bin/sidekiq` to start the app and Sidekiq; alternatively, start both at once with `heroku local`.
+
+### Api controllers generator
+
+This generator creates all 3 files required for a new api controller(controller, documentation and tests)
+
+#### Usage
+
+`rails g api_controller [file_name][options]`
+
+ * `file_name` - is required (e.g for test and generates test_controller.rb). It can be also a path to the file like authentication/passwords
+ * `options` - is optional
+
+Options to use:
+ * `--version` - Version of api(e.g `--version v2`) default is v1
+ * `--methods` - What methods will this controller contain
+    * i = index, s = show, c = create, u = update, d = destroy
+    * (e.g `--methods i` will add index method)
+
+[rbenv]:https://github.com/sstephenson/rbenv
+[redis]:http://redis.io
+[Homebrew]:http://brew.sh
